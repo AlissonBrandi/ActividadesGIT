@@ -1,0 +1,79 @@
+REALIZADO POR ALISSON LUCÍA REYNOSO BRANDI
+
+COMANDOS NO VISTOS EN CLASE
+
+GIT LOG:
+
+Es un comando que se implementa para visualizar el historial de commits, estando en la carpeta de un proyecto específico. Al tener el listado en la terminal se podrá observar los mensajes de los commits y su identificador,  así también se puede obtener más información de un commit en concreto, sus modificaciones en el código, etc.
+
+El orden de la visualización de los commits será invertida, es decir los primeros en aparecer en el historial serán las ultimas modificaciones que se realizaron en el proyecto.
+
+De un commit se podrá ver diversas informaciones básicas como:
+
+•	Identificador del commit
+•	Autor
+•	Fecha de realización
+•	Mensaje enviado
+
+
+IMPLEMENTACIÓN DEL COMANDO GIT LOG.
+
+•	Al ingresar en la consola  git log  arrojará como resultado el listado de todos los commits que se han generado de forma invertida.
+
+•	Si el proyecto presenta una gran cantidad de commits, se puede utilizar el comando con una restricción de commits a mostrar, de tal forma que se pondría lo siguiente en consola: git log  - [número de commits a mostrar].
+
+•	Para consular el historial de una cantidad determinada commits con mayor detalle, se pondría lo siguiente en consola: 
+	git log  - [número de commits a mostrar] -p
+GIT STASH:
+
+Git tiene un área llamada "stash" donde puedes almacenar temporalmente los cambios realizados de un archivo sin enviarlos al repositorio. Está separada del directorio de trabajo (working directory), del área de preparación (staging area), o del repositorio. 
+
+Este comando es muy útil, ya que es ideal para las situaciones en las que se han realizado cambios en una rama, sin embargo aún no está listo para realizar commit, y se requiere cambiar a otra rama.
+
+
+IMPLEMENTACIÓN DEL COMANDO GIT STASH:
+
+•	Para guardar  cambios en el stash, se ejecuta el comando: 
+git stash save "mensaje opcional"
+
+•	Para ver lo que hay en el stash, ese ejecuta el comando:
+          git stash list
+
+•	Para recuperar los cambios del stash y aplicarlos a la rama actual en la que se estás, se tienes dos opciones:
+
+git stash apply [nombre del stash] aplica los cambios y deja una copia en el stash
+
+git stash pop [nombre del stash]  aplica los cambio y elimina los archivos del stash
+
+•	Para remover los cambios guardados en stash sin aplicarlos, se ejecuta el comando:
+
+git stash drop [nombre del stash]
+
+
+GIT FORK
+
+Un fork significa bifurcación, y en programación que supone copiar un proyecto y partir de este,  hacerle modificaciones. Cuando trabajamos con repositorios Git, supone hacer una copia exacta del proyecto, generando dos URL distintas. 
+Con git clone podemos copiar el código de un repositorio de forma local, pero no estará conectado al repositorio de origen. Con Fork podremos crear una copia en remoto de un repositorio git en nuestra cuenta de GitHub y de esa forma será más fácil clonar de forma local para hacer pull y push de los cambios realizados.
+Las ventajas de implementar este comando es que, se puede experimentar libremente con los cambios sin afectar el proyecto original.
+
+IMPLEMENTACIÓN DE GIT FORK:
+
+1.	Hacemos un fork del repositorio original.
+2.	Se dirige a la página del proyecto y se le da al botón Fork   y creará una copia en la cuenta GitHub.
+3.	Se descarga el repositorio forkeado de github.
+4.	Como siguiente paso, desde una terminal, se dirige al directorio en donde se desea tener la carpeta y se ejecuta.
+5.	Es muy importante diferenciar entre el fork, y el repositorio original.
+6.	Se ingresa en la carpeta Clone-wars
+cd Clone-wars/
+7.	Se Añade un remote del repositorio origen.
+git remote add upstream [LINK]
+8.	Se actualiza el repositorio destino.
+git pull upstream master
+
+9.	Si  se quiere añadir algo nuevo al fork, primero se debe añadir al repositorio destino.
+
+git add fichero
+git commit -m ‘Cambios realizados’
+git push origin master
+
+Con los tres comandos anteriores se subirá el fichero al repositorio destino.
